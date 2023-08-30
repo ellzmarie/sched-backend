@@ -49,14 +49,6 @@ app.get("/contact", async(req, res) => {
   }
 })
 
-// CREATE
-app.post("/contact", async(req, res) => {
-  try {
-    res.status(200).json(await Contact.create(req.body))
-  } catch (error){
-    res.status(400).json(error)
-  } 
-})
 
 // DELETE
 app.delete("/contact/:id", async(req, res) => {
@@ -76,7 +68,14 @@ app.put("/contact/:id", async(req, res) => {
   }
 })
 
-
+// CREATE
+app.post("/contact", async(req, res) => {
+  try {
+    res.status(200).json(await Contact.create(req.body))
+  } catch (error){
+    res.status(400).json(error)
+  } 
+})
 
 // LISTENER 
 app.listen(PORT, () => console.log(`Listening to the smooth sounds of port ${PORT}`))
