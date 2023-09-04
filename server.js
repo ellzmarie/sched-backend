@@ -27,7 +27,7 @@ const ContactsSchema = new mongoose.Schema({
     timezone: String
 })
 
-const Contact = mongoose.model("Contact", ContactsSchema)
+const Contacts = mongoose.model("Contacts", ContactsSchema)
 
 // MIDDLEWARE
 app.use(cors()) // prevents cross origin region sharing errors, allows to server from origin i.e. react frontend
@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 })
 
 // INDEX
-app.get("/contact", async(req, res) => {
+app.get("/contacts", async(req, res) => {
   try {
     res.status(200).json(await Contact.find({}))
   } catch (error){
@@ -51,7 +51,7 @@ app.get("/contact", async(req, res) => {
 
 
 // DELETE
-app.delete("/contact/:id", async(req, res) => {
+app.delete("/contacts/:id", async(req, res) => {
   try {
     res.status(200).json(await Contact.findByIdAndDelete(req.params.id))
   } catch (error) {
@@ -60,7 +60,7 @@ app.delete("/contact/:id", async(req, res) => {
 })
 
 // UPDATE 
-app.put("/contact/:id", async(req, res) => {
+app.put("/contacts/:id", async(req, res) => {
   try {
     res.status(200).json(await Contact.findByIdAndUpdate(req.params.id, req.body, { new:true }))
   } catch (error) {
@@ -69,7 +69,7 @@ app.put("/contact/:id", async(req, res) => {
 })
 
 // CREATE
-app.post("/contact", async(req, res) => {
+app.post("/contacts", async(req, res) => {
   try {
     res.status(200).json(await Contact.create(req.body))
   } catch (error){
