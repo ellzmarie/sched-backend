@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 // INDEX
 app.get("/contacts", async(req, res) => {
   try {
-    res.status(200).json(await Contact.find({}))
+    res.status(200).json(await Contacts.find({}))
   } catch (error){
     res.status(400).json(error)
   }
@@ -53,7 +53,7 @@ app.get("/contacts", async(req, res) => {
 // DELETE
 app.delete("/contacts/:id", async(req, res) => {
   try {
-    res.status(200).json(await Contact.findByIdAndDelete(req.params.id))
+    res.status(200).json(await Contacts.findByIdAndDelete(req.params.id))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -62,7 +62,7 @@ app.delete("/contacts/:id", async(req, res) => {
 // UPDATE 
 app.put("/contacts/:id", async(req, res) => {
   try {
-    res.status(200).json(await Contact.findByIdAndUpdate(req.params.id, req.body, { new:true }))
+    res.status(200).json(await Contacts.findByIdAndUpdate(req.params.id, req.body, { new:true }))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -71,7 +71,7 @@ app.put("/contacts/:id", async(req, res) => {
 // CREATE
 app.post("/contacts", async(req, res) => {
   try {
-    res.status(200).json(await Contact.create(req.body))
+    res.status(200).json(await Contacts.create(req.body))
   } catch (error){
     res.status(400).json(error)
   } 
