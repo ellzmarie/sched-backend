@@ -24,6 +24,7 @@ const ContactsSchema = new mongoose.Schema({
     name: String,
     email: String,
     phone: String,
+    desiredTimesAmPm: String,
     timezone: String
 })
 
