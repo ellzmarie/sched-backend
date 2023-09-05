@@ -24,8 +24,10 @@ const ContactsSchema = new mongoose.Schema({
     name: String,
     email: String,
     phone: String,
-    desiredTimesAmPm: String,
-    timezone: String
+    desiredTime: String,
+    amPm: String,
+    timezone: String,
+    notes: String
 })
 
 const Contacts = mongoose.model("Contacts", ContactsSchema)
